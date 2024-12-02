@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Challenge</title>
+</head>
+
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Memory Card Game</h1>
+            <p class="instructions">Match all the pairs before time runs out!</p>
+            <div class="score-timer">
+                <p id="score">Score: 0</p>
+                <p id="failures">Failures: 0</p>
+                <p id="timer">Time: 0</p>
+            </div>
+
+            <div class="controls">
+                <button id="startGame">Start Game</button>
+                <button id="resetGame" class="hidden">Reset Game</button>
+            </div>
+        </header>
+
+        <div class="difficulty">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <div class="deck-selection">
+            <label for="deck">Choose Card Deck:</label>
+            <select id="deck">
+                <option value="animals">Animals</option>
+                <option value="fruits">Fruits</option>
+            </select>
+        </div>
+
+        <div id="gameBoard" class="game-board"></div>
+        <div id="feedback" class="feedback"></div>
+        <canvas id="fireworks"></canvas>
+    </div>
+    
+</body>
+</html>
