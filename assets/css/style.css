@@ -17,27 +17,26 @@ body {
 }
 
 .game-container {
-    max-width: 1000px;
+    max-width: 90%;
+    width: 800px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #7c238c;
-    border-radius: 15px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 10;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
     font-family: 'Fredoka One', cursive;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: #fff;
 }
 
 .instructions {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
     color: #fff;
 }
 
@@ -57,10 +56,10 @@ header h1 {
     background-color: #854798;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     margin: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
+    font-size: 1.1rem;
+    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
 }
@@ -81,24 +80,24 @@ header h1 {
 
 .deck-label {
     font-family: 'Fredoka One', cursive;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
     display: block;
 }
 
 .deck-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .deck-button {
     background-color: #854798;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
 }
@@ -114,7 +113,7 @@ header h1 {
 }
 
 select {
-    padding: 3px;
+    padding: 5px;
     border-radius: 5px;
     font-size: 1rem;
     border: none;
@@ -264,23 +263,22 @@ select {
 /* Responsive Design - Mobile First */
 @media (min-width: 600px) {
     .game-board {
-      gap: 10px;
-      grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        grid-template-columns: repeat(4, 1fr);
     }
-  
+
     .card {
-      max-width: 80px;
+        max-width: 80px;
     }
-  }
-  
-  @media (min-width: 900px) {
+}
+
+@media (min-width: 900px) {
     .game-board {
-      gap: 15px;
-      grid-template-columns: repeat(6, 1fr);
+        gap: 15px;
+        grid-template-columns: repeat(6, 1fr);
     }
-  
+
     .card {
-      max-width: 100px;
+        max-width: 100px;
     }
-  }
-  
+}
