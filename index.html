@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser Tab Title-->
     <title>Memory Match Challenge</title>
 
     <!-- SEO -->
@@ -34,17 +36,17 @@
 <body>
     <div class="game-container">
         <header>
-            <h1>Memory Card Game</h1>
-            <p class="instructions">Match all the pairs before time runs out!</p>
+            <h1>Memory Match Challenge</h1>
+            <p class="instructions">Match all the pairs!</p>
             <div class="score-timer">
                 <p id="score">Score: 0</p>
                 <p id="failures">Failures: 0</p>
-                <p id="timer">Time: 0</p>
             </div>
 
             <div class="controls">
                 <button id="startGame">Start Game</button>
                 <button id="resetGame" class="hidden">Reset Game</button>
+                <button id="hintButton" class="hidden">Hint</button>
             </div>
         </header>
 
@@ -68,8 +70,20 @@
         <div id="gameBoard" class="game-board"></div>
         <div id="feedback" class="feedback"></div>
         <canvas id="fireworks"></canvas>
-    </div>
 
+        <!-- Tutorial Modal -->
+        <div id="tutorialModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>How to Play</h2>
+                <p>Select a card deck and choose a difficulty. Flip two cards at a time to find matching pairs. Use
+                    hints if you need help, but be quick! You can use your keyboard (Tab and Enter) to navigate the
+                    cards, and there's a surprise when you win!</p>
+                <button id="closeTutorialButton">Got It!</button>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Link to JavaScript -->
     <script src="assets/js/script.js"></script>
