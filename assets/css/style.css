@@ -23,6 +23,8 @@ body {
     background-color: #7c238c;
     border-radius: 15px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
 }
 
 header h1 {
@@ -248,3 +250,37 @@ select {
     color: #fff;
 }
 
+/* Fireworks Canvas */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive Design - Mobile First */
+@media (min-width: 600px) {
+    .game-board {
+      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .card {
+      max-width: 80px;
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .game-board {
+      gap: 15px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  
+    .card {
+      max-width: 100px;
+    }
+  }
+  
