@@ -11,3 +11,14 @@ const difficultySelect = document.getElementById('difficulty');
 const tutorialModal = document.getElementById('tutorialModal');
 const closeModal = document.getElementById('closeModal');
 const fireworksCanvas = document.getElementById('fireworks');
+
+// Variables for game state
+let cards = [];
+let flippedCards = [];
+let matchedCards = [];
+let score = 0;
+let failures = 0;
+let deckType = 'animals';
+let gameDifficulty = 'easy';
+let gridSize = 4;
+
