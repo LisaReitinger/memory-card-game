@@ -145,6 +145,7 @@ select {
     gap: 15px;
     justify-content: center;
     margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
 }
 
 .card {
