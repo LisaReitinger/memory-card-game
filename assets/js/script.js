@@ -53,3 +53,14 @@ const decks = {
         {name: 'pear', image: '../assets/images/fruits/pear.png'};
     ]
 };
+
+// Initialize Game
+function initializeGame() {
+    updateDifficulty();
+    setDeck(deckType);
+    updateScore();
+    updateFailures();
+    hintButton.classList.add('hidden');
+    resetGameButton.classList.add('hidden');
+}
+
