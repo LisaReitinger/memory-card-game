@@ -130,6 +130,18 @@ function shuffle(array) {
   }
 }
 
+// Flip Card 
+function flipCard(cardElement) {
+  if (flippedCards.length < 2 && !cardElement.classList.contains('flipped')) {
+    cardElement.classList.add('flipped');
+    flippedCards.push(cardElement);
+
+    if (flippedCards.length === 2) {
+      checkForMatch();
+    }
+  }
+}
+
 // Update Score 
 function updateScore() {
   scoreElement.textContent = `Score: ${score}`;
