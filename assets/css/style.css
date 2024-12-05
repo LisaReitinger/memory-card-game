@@ -6,24 +6,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Prefers-reduced-motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none;
-        transition: none;
-    }
-
-    .card.matched,
-    .card.shake {
-        animation: none;
-    }
-
-    /* Keep card flip transition */
-    .card {
-        transition: transform 0.5s;
-    }
-}
-
 body {
     background-color: #42033d;
     color: #fff;
@@ -277,6 +259,24 @@ select {
     height: 100vh;
     pointer-events: none;
     z-index: -1;
+}
+
+/* Prefers-reduced-motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none;
+        transition: none;
+    }
+
+    .card.matched,
+    .card.shake {
+        animation: none;
+    }
+
+    /* Keep card flip transition */
+    .card {
+        transition: transform 0.5s;
+    }
 }
 
 /* Responsive Design - Mobile First */

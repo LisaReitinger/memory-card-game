@@ -57,7 +57,6 @@ const decks = {
 // Initialize Game
 function initializeGame() {
     updateDifficulty();
-    setDeck(deckType);
     updateScore();
     updateFailures();
     hintButton.classList.add('hidden');
@@ -76,7 +75,6 @@ function startGame() {
 // Reset Game
 function resetGame() {
     gameBoard.innerHTML = '';
-    cards = [];
     flippedCards = [];
     matchedCards = [];
     score = 0;
@@ -122,6 +120,24 @@ function createGameBoard() {
       cardElement.addEventListener('click', () => flipCard(cardElement));
       gameBoard.appendChild(cardElement);
     });
+}
+
+// Shuffle Cards
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// Update Score 
+function updateScore() {
+  scoreElement.textContent = `Score: ${score}`;
+}
+
+// Update Failures
+function updateFailures() {
+  failuresElement.textContent = `Failures: ${failures}`;
 }
 
 startGameButton.addEventListener('click', startGame);
