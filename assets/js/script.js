@@ -124,3 +124,8 @@ function createGameBoard() {
     });
 }
 
+startGameButton.addEventListener('click', startGame);
+// Initialize Game
+initializeGame();
+
+
