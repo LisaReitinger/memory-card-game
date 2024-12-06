@@ -142,6 +142,29 @@ function flipCard(cardElement) {
   }
 }
 
+// Check for Match
+function checkForMatch() {
+  const [cardOne, cardTwo] = flippedCards;
+  if (cardOne.dataset.name === cardTwo.dataset.name) {
+    cardOne.classList.add('matched');
+    cardTwo.classList.add('matched');
+    matchedCards.push(cardOne, cardTwo);
+    flippedCards = [];
+    score++;
+    updateScore();
+    checkForWin();
+  } else {
+    failures++;
+    updateFailures();
+    setTimeout(() => {
+      cardOne.classList.remove('flipped');
+      cardTwo.classList.remove('flipped');
+      flippedCards = [];
+    }, 1000);
+  }
+}
+
+
 // Update Score 
 function updateScore() {
   scoreElement.textContent = `Score: ${score}`;
