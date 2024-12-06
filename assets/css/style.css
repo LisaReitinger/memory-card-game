@@ -18,7 +18,7 @@ body {
 
 .game-container {
     max-width: 90%;
-    width: 800px; 
+    width: 800px;
     margin: 20px auto;
     padding: 30px;
     background-color: #7c238c;
@@ -146,6 +146,15 @@ select {
     transition: transform 0.5s;
 }
 
+.card img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    /* Ensures the image fits inside without cropping */
+    object-position: center;
+    border-radius: 10px;
+}
+
 .card.flipped {
     transform: rotateY(180deg);
 }
@@ -174,10 +183,12 @@ select {
     justify-content: center;
     align-items: center;
     transform: rotateY(180deg);
+    z-index: 2;
 }
 
 .card .back {
     background-color: #42033d;
+    z-index: 1;
 }
 
 /* Animations */
