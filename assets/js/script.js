@@ -182,7 +182,32 @@ function updateFailures() {
   failuresElement.textContent = `Failures: ${failures}`;
 }
 
+// Trigger Victory Animation
+function triggerVictoryAnimation() {
+  // Placeholder for particle animation or fireworks effect
+  console.log('Congratulations! You matched all cards!');
+}
+
 startGameButton.addEventListener('click', startGame);
+
+// Show Hint
+function showHint() {
+  let matchedPairs = 0;
+  cards.forEach(card => {
+    const cardElements = [...gameBoard.children].filter(child => child.dataset.name === card.name && !child.classList.contains('matched'));
+    if (matchedPairs < 2 && cardElements.length === 2) {
+      cardElements[0].classList.add('flipped');
+      cardElements[1].classList.add('flipped');
+      matchedPairs++;
+    }
+  });
+}
+
+
+
+
+
+
 // Initialize Game
 initializeGame();
 
