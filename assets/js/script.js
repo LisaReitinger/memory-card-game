@@ -188,7 +188,19 @@ function triggerVictoryAnimation() {
   console.log('Congratulations! You matched all cards!');
 }
 
+// Event Listeners
 startGameButton.addEventListener('click', startGame);
+resetGameButton.addEventListener('click', resetGame);
+hintButton.addEventListener('click', showHint);
+animalsDeckButton.addEventListener('click', () => setDeck('animals'));
+fruitsDeckButton.addEventListener('click', () => setDeck('fruits'));
+difficultySelect.addEventListener('change', () => {
+  updateDifficulty();
+  setDeck(deckType);
+});
+closeModal.addEventListener('click', () => {
+  tutorialModal.style.display = 'none';
+});
 
 // Show Hint
 function showHint() {
@@ -201,12 +213,13 @@ function showHint() {
       matchedPairs++;
     }
   });
+  setTimeout(() => {
+    cards.forEach(card => {
+      const cardElements = [...gameBoard.children].filter(child => child.dataset.name === card.name && !child.classList.contains('matched'));
+      cardElements.forEach(cardElement => cardElement.classList.remove('flipped'));
+    });
+  }, 3000);
 }
-
-
-
-
-
 
 // Initialize Game
 initializeGame();
