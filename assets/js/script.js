@@ -164,6 +164,13 @@ function checkForMatch() {
   }
 }
 
+// Check for Win
+function checkForWin() {
+  if (matchedCards.length === cards.length) {
+    triggerVictoryAnimation();
+  }
+}
+
 
 // Update Score 
 function updateScore() {
