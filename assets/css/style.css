@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; 
 }
 
 body {
@@ -123,11 +123,12 @@ select {
 
 /* Game Board */
 .game-board {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
+    align-items: center;
     justify-content: center;
     margin-top: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
 }
 
 .card {
