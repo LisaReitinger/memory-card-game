@@ -166,8 +166,14 @@ function setDeck(type) {
 // Update Difficulty
 function updateDifficulty() {
   gameDifficulty = difficultySelect.value;
-  gridSize = gameDifficulty === 'easy' ? 4 : gameDifficulty === 'medium' ? 5 : 6;
-  gameBoard.className = `game-board ${gameDifficulty}`;
+  if (gameDifficulty === 'easy') {
+    cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); // 16 cards (4x4)
+  } else if (gameDifficulty === 'hard') {
+    cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); // 20 cards (4x5)
+  }
+  
+  shuffle(cards);
+  createGameBoard(); // Rebuild game board with updated cards
 }
 
 // Create Game Board
@@ -245,7 +251,6 @@ function checkForWin() {
     triggerVictoryAnimation();
   }
 }
-
 
 // Update Score 
 function updateScore() {
