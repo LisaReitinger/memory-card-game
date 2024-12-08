@@ -313,22 +313,21 @@ p.instructions.hidden {
 /* Responsive Design - Mobile First */
 @media (min-width: 600px) {
     .game-board {
-        gap: 10px;
-        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
     }
 
     .card {
-        max-width: 80px;
+        flex: 1 1 calc(25% - 15px); /* Four cards in a row for easy */
+        max-width: 140px;
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 889px) {
     .game-board {
         gap: 15px;
-        grid-template-columns: repeat(6, 1fr);
     }
 
     .card {
-        max-width: 100px;
+        max-width: 150px;
     }
 }
