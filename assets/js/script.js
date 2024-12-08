@@ -126,6 +126,9 @@ const decks = {
 
 // Initialize Game
 function initializeGame() {
+  score = 0;
+  failures = 0; 
+  gameBoard.style.display = 'none';
   updateDifficulty();
   updateScore();
   updateFailures();
@@ -135,6 +138,7 @@ function initializeGame() {
 
 // Start Game
 function startGame() {
+  gameBoard.style.display = 'flex';
   setDeck(deckType);
   resetGame();
   hintButton.classList.remove('hidden');

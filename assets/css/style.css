@@ -128,7 +128,12 @@ select {
     gap: 15px;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none; 
 }
 
 .card {
