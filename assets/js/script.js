@@ -11,6 +11,9 @@ const difficultySelect = document.getElementById('difficulty');
 const tutorialModal = document.getElementById('tutorialModal');
 const closeModal = document.getElementById('closeModal');
 const fireworksCanvas = document.getElementById('fireworks');
+const headerTitle = document.querySelector('header h1');
+const instructions = document.querySelector('p.instructions');
+
 
 // Variables for game state
 let cards = [];
@@ -129,6 +132,8 @@ function initializeGame() {
   score = 0;
   failures = 0; 
   gameBoard.style.display = 'none';
+  headerTitle.classList.remove('hidden'); // Ensure header is visible on reset
+  instructions.classList.remove('hidden'); // Ensure instructions are visible on reset
   updateDifficulty();
   updateScore();
   updateFailures();
@@ -139,6 +144,9 @@ function initializeGame() {
 // Start Game
 function startGame() {
   gameBoard.style.display = 'flex';
+  headerTitle.classList.add('hidden'); // Hide header title
+  instructions.classList.add('hidden'); // Hide instructions
+  startGameButton.classList.add('hidden'); // Hide start button
   setDeck(deckType);
   resetGame();
   hintButton.classList.remove('hidden');
@@ -155,6 +163,7 @@ function resetGame() {
   failures = 0;
   updateScore();
   updateFailures();
+  createGameBoard(); 
 }
 
 // Set Deck

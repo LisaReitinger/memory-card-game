@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -128,12 +128,12 @@ select {
     gap: 15px;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100%;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    display: none; 
+    display: none;
 }
 
 .card {
@@ -195,6 +195,19 @@ select {
 .card .back {
     background-color: #42033d;
     z-index: 1;
+}
+
+.controls button {
+    display: inline-block;
+}
+
+.controls button.hidden {
+    display: none;
+}
+
+header h1.hidden,
+p.instructions.hidden {
+    display: none;
 }
 
 /* Animations */
