@@ -150,6 +150,7 @@ select {
     perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    flex: 1 1 calc(25% - 15px); /* Ensures 4 cards per row */
 }
 
 .card img {
