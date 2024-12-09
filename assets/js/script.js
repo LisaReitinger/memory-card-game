@@ -174,8 +174,6 @@ function setDeck(type) {
   deckType = type;
   animalsDeckButton.classList.toggle('selected', type === 'animals');
   fruitsDeckButton.classList.toggle('selected', type === 'fruits');
-  cards = [...decks[type], ...decks[type]];
-  cards = cards.slice(0, gridSize * gridSize / 2).concat(cards.slice(0, gridSize * gridSize / 2));
   shuffle(cards);
 }
 
@@ -183,8 +181,11 @@ function setDeck(type) {
 function updateDifficulty() {
   gameDifficulty = difficultySelect.value;
   if (gameDifficulty === 'easy') {
+    gridSize = 4;
     cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); // 16 cards (4x4)
+  
   } else if (gameDifficulty === 'hard') {
+    gridSize = 5;
     cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); // 20 cards (4x5)
   }
   

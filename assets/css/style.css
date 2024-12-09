@@ -128,7 +128,7 @@ select {
     gap: 15px;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
     max-width: 800px;
     margin-left: auto;
@@ -137,6 +137,7 @@ select {
 }
 
 .card {
+    flex: 1 1 calc(25% - 15px); /* Ensures 4 cards per row */
     width: 100%;
     max-width: 100px;
     aspect-ratio: 1 / 1;
@@ -150,7 +151,6 @@ select {
     perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    flex: 1 1 calc(25% - 15px); /* Ensures 4 cards per row */
 }
 
 .card img {
