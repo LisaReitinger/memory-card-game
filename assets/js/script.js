@@ -14,7 +14,6 @@ const fireworksCanvas = document.getElementById('fireworks');
 const headerTitle = document.querySelector('header h1');
 const instructions = document.querySelector('p.instructions');
 
-
 // Variables for game state
 let cards = [];
 let flippedCards = [];
@@ -147,6 +146,10 @@ function startGame() {
   headerTitle.classList.add('hidden'); // Hide header title
   instructions.classList.add('hidden'); // Hide instructions
   startGameButton.classList.add('hidden'); // Hide start button
+  document.querySelector('.deck-selection').classList.add('hidden'); // Hide the Choose Card Deck section
+  document.querySelector('.difficulty').classList.add('hidden'); // Hide the Difficulty dropdown
+
+  updateDifficulty();
   setDeck(deckType);
   resetGame();
   hintButton.classList.remove('hidden');
@@ -192,7 +195,6 @@ function updateDifficulty() {
 // Create Game Board
 function createGameBoard() {
   gameBoard.innerHTML = '';
-  gameBoard.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   cards.forEach((card, index) => {
     const cardElement = document.createElement('div');
     cardElement.classList.add('card');

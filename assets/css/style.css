@@ -211,6 +211,10 @@ p.instructions.hidden {
     display: none;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Animations */
 @keyframes glow {
     0% {
