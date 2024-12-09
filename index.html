@@ -45,6 +45,7 @@
                 <button id="startGame">Start Game</button>
                 <button id="resetGame" class="hidden">Reset Game</button>
                 <button id="hintButton" class="hidden">Hint</button>
+                <button id="quitGameButton" class="hidden">Quit Game</button>
             </div>
         </header> 
 
@@ -81,6 +82,17 @@
         </div>
 
     </div>
+
+    <!-- Quit Modal -->
+<div id="quitModal" class="modal hidden">
+    <div class="modal-content">
+        <p>Are you sure you want to quit and go back to where it all started?</p>
+        <div class="modal-actions">
+            <button id="confirmQuit">Yes, Quit</button>
+            <button id="cancelQuit">Stay</button>
+        </div>
+    </div>
+</div>
 
     <!-- Link to JavaScript -->
     <script src="assets/js/script.js"></script>

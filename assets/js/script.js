@@ -14,6 +14,11 @@ const fireworksCanvas = document.getElementById('fireworks');
 const headerTitle = document.querySelector('header h1');
 const instructions = document.querySelector('p.instructions');
 
+const quitGameButton = document.getElementById('quitGameButton');
+const quitModal = document.getElementById('quitModal');
+const confirmQuitButton = document.getElementById('confirmQuit');
+const cancelQuitButton = document.getElementById('cancelQuit');
+
 // Variables for game state
 let cards = [];
 let flippedCards = [];
@@ -148,7 +153,7 @@ function startGame() {
   startGameButton.classList.add('hidden'); // Hide start button
   document.querySelector('.deck-selection').classList.add('hidden'); // Hide the Choose Card Deck section
   document.querySelector('.difficulty').classList.add('hidden'); // Hide the Difficulty dropdown
-
+  quitGameButton.classList.remove('hidden'); // Show Quit Button
   updateDifficulty();
   setDeck(deckType);
   resetGame();
@@ -298,6 +303,22 @@ difficultySelect.addEventListener('change', () => {
 });
 closeModal.addEventListener('click', () => {
   tutorialModal.style.display = 'none';
+});
+
+// Show Quit Modal
+quitGameButton.addEventListener('click', () => {
+  quitModal.classList.add('show');
+});
+
+// Confirm Quit
+confirmQuitButton.addEventListener('click', () => {
+  quitModal.classList.remove('show');
+  location.reload(); // Reload the page to reset everything
+});
+
+// Cancel Quit
+cancelQuitButton.addEventListener('click', () => {
+  quitModal.classList.remove('show');
 });
 
 // Show Hint
