@@ -167,6 +167,7 @@ function resetGame() {
   updateScore();
   updateFailures();
   createGameBoard();
+  shuffle(cards);
 }
 
 // Set Deck
@@ -183,10 +184,11 @@ function updateDifficulty() {
   if (gameDifficulty === 'easy') {
     gridSize = 4;
     cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); // 16 cards (4x4)
-
+    hintButton.disabled = false; // Enable hint button
   } else if (gameDifficulty === 'hard') {
     gridSize = 5;
     cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); // 20 cards (4x5)
+    hintButton.disabled = true; // Disable hint button
   }
 
   shuffle(cards);
