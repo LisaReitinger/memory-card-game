@@ -129,7 +129,7 @@ const decks = {
 // Initialize Game
 function initializeGame() {
   score = 0;
-  failures = 0; 
+  failures = 0;
   gameBoard.style.display = 'none';
   headerTitle.classList.remove('hidden'); // Ensure header is visible on reset
   instructions.classList.remove('hidden'); // Ensure instructions are visible on reset
@@ -166,7 +166,7 @@ function resetGame() {
   failures = 0;
   updateScore();
   updateFailures();
-  createGameBoard(); 
+  createGameBoard();
 }
 
 // Set Deck
@@ -183,12 +183,12 @@ function updateDifficulty() {
   if (gameDifficulty === 'easy') {
     gridSize = 4;
     cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); // 16 cards (4x4)
-  
+
   } else if (gameDifficulty === 'hard') {
     gridSize = 5;
     cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); // 20 cards (4x5)
   }
-  
+
   shuffle(cards);
   createGameBoard(); // Rebuild game board with updated cards
 }
@@ -300,21 +300,27 @@ closeModal.addEventListener('click', () => {
 
 // Show Hint
 function showHint() {
-  let matchedPairs = 0;
+  let hintShown = false; // Variable to track if a hint is already shown
+
   cards.forEach(card => {
-    const cardElements = [...gameBoard.children].filter(child => child.dataset.name === card.name && !child.classList.contains('matched'));
-    if (matchedPairs < 2 && cardElements.length === 2) {
+    // Find unmatched cards for the same name
+    const cardElements = [...gameBoard.children].filter(child =>
+      child.dataset.name === card.name && !child.classList.contains('matched')
+    );
+
+    // Show the first unmatched pair
+    if (!hintShown && cardElements.length === 2) {
       cardElements[0].classList.add('flipped');
       cardElements[1].classList.add('flipped');
-      matchedPairs++;
+      hintShown = true; // Mark that a hint has been shown
+
+      // Hide the hint after 3 seconds
+      setTimeout(() => {
+        cardElements[0].classList.remove('flipped');
+        cardElements[1].classList.remove('flipped');
+      }, 3000);
     }
   });
-  setTimeout(() => {
-    cards.forEach(card => {
-      const cardElements = [...gameBoard.children].filter(child => child.dataset.name === card.name && !child.classList.contains('matched'));
-      cardElements.forEach(cardElement => cardElement.classList.remove('flipped'));
-    });
-  }, 3000);
 }
 
 // Initialize Game
