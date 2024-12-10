@@ -9,7 +9,6 @@ const animalsDeckButton = document.getElementById('animalsDeckButton');
 const fruitsDeckButton = document.getElementById('fruitsDeckButton');
 const difficultySelect = document.getElementById('difficulty');
 
-const fireworksCanvas = document.getElementById('fireworks');
 const headerTitle = document.querySelector('header h1');
 const instructions = document.querySelector('p.instructions');
 
@@ -270,8 +269,49 @@ function checkForMatch() {
 // Check for Win
 function checkForWin() {
   if (matchedCards.length === cards.length) {
-    triggerVictoryAnimation();
+    triggerConfetti();
   }
+}
+
+// Function to trigger confetti //
+function triggerConfetti() {
+  const count = 200;
+  const defaults = { origin: { y: 0.7 } };
+
+  function fire(particleRatio, opts) {
+    confetti(
+      Object.assign({}, defaults, opts, {
+        particleCount: Math.floor(count * particleRatio),
+      })
+    );
+  }
+
+  fire(0.25, {
+    spread: 26,
+    startVelocity: 55,
+  });
+
+  fire(0.2, {
+    spread: 60,
+  });
+
+  fire(0.35, {
+    spread: 100,
+    decay: 0.91,
+    scalar: 0.8,
+  });
+
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 25,
+    decay: 0.92,
+    scalar: 1.2,
+  });
+
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 45,
+  });
 }
 
 // Update Score 
@@ -282,12 +322,6 @@ function updateScore() {
 // Update Failures
 function updateFailures() {
   failuresElement.textContent = `Failures: ${failures}`;
-}
-
-// Trigger Victory Animation
-function triggerVictoryAnimation() {
-  // Placeholder for particle animation or fireworks effect
-  console.log('Congratulations! You matched all cards!');
 }
 
 // Event Listeners
