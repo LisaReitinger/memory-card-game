@@ -47,7 +47,7 @@
                 <button id="hintButton" class="hidden">Hint</button>
                 <button id="quitGameButton" class="hidden">Quit Game</button>
             </div>
-        </header> 
+        </header>
 
         <!--Deck Buttons-->
         <div class="deck-selection">
@@ -70,33 +70,19 @@
         <div id="feedback" class="feedback"></div>
         <canvas id="fireworks"></canvas>
 
-        <!-- Tutorial Modal -->
-        <div id="tutorialModal" class="modal">
+        <!-- Quit Modal -->
+        <div id="quitModal" class="modal hidden">
             <div class="modal-content">
-                <span id="closeModal" class="close">&times;</span>
-                <h2>How to Play</h2>
-                <p>Select a card deck and choose a difficulty. Flip two cards at a time to find matching pairs. Use
-                    hints if you need help, but be quick! You can use your keyboard (Tab and Enter) to navigate the
-                    cards, and there's a surprise when you win!</p>
-                <button id="closeTutorialButton">Got It!</button>
+                <p>Are you sure you want to quit and go back to where it all started?</p>
+                <div class="modal-actions">
+                    <button id="confirmQuit">Yes, Quit</button>
+                    <button id="cancelQuit">Stay</button>
+                </div>
             </div>
         </div>
 
-    </div>
-
-    <!-- Quit Modal -->
-<div id="quitModal" class="modal hidden">
-    <div class="modal-content">
-        <p>Are you sure you want to quit and go back to where it all started?</p>
-        <div class="modal-actions">
-            <button id="confirmQuit">Yes, Quit</button>
-            <button id="cancelQuit">Stay</button>
-        </div>
-    </div>
-</div>
-
-    <!-- Link to JavaScript -->
-    <script src="assets/js/script.js"></script>
+        <!-- Link to JavaScript -->
+        <script src="assets/js/script.js"></script>
 </body>
 
 </html>

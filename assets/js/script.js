@@ -8,8 +8,7 @@ const failuresElement = document.getElementById('failures');
 const animalsDeckButton = document.getElementById('animalsDeckButton');
 const fruitsDeckButton = document.getElementById('fruitsDeckButton');
 const difficultySelect = document.getElementById('difficulty');
-const tutorialModal = document.getElementById('tutorialModal');
-const closeModal = document.getElementById('closeModal');
+
 const fireworksCanvas = document.getElementById('fireworks');
 const headerTitle = document.querySelector('header h1');
 const instructions = document.querySelector('p.instructions');
@@ -300,9 +299,6 @@ fruitsDeckButton.addEventListener('click', () => setDeck('fruits'));
 difficultySelect.addEventListener('change', () => {
   updateDifficulty();
   setDeck(deckType);
-});
-closeModal.addEventListener('click', () => {
-  tutorialModal.style.display = 'none';
 });
 
 // Show Quit Modal
