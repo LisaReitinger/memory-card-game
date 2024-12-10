@@ -8,14 +8,15 @@ const failuresElement = document.getElementById('failures');
 const animalsDeckButton = document.getElementById('animalsDeckButton');
 const fruitsDeckButton = document.getElementById('fruitsDeckButton');
 const difficultySelect = document.getElementById('difficulty');
-
 const headerTitle = document.querySelector('header h1');
 const instructions = document.querySelector('p.instructions');
-
 const quitGameButton = document.getElementById('quitGameButton');
 const quitModal = document.getElementById('quitModal');
 const confirmQuitButton = document.getElementById('confirmQuit');
 const cancelQuitButton = document.getElementById('cancelQuit');
+const endGameModal = document.getElementById("endGameModal");
+const tryAgainButton = document.getElementById("tryAgainButton");
+const endGameButton = document.getElementById("endGameButton");
 
 // Variables for game state
 let cards = [];
@@ -186,11 +187,11 @@ function updateDifficulty() {
   gameDifficulty = difficultySelect.value;
   if (gameDifficulty === 'easy') {
     gridSize = 4;
-    cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); // 16 cards (4x4)
+    cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); 
     hintButton.disabled = false; // Enable hint button
   } else if (gameDifficulty === 'hard') {
     gridSize = 5;
-    cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); // 20 cards (4x5)
+    cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); 
     hintButton.disabled = true; // Disable hint button
   }
 
@@ -273,10 +274,32 @@ function checkForWin() {
   }
 }
 
+// Show End Game Modal
+function showEndGameModal() {
+  endGameModal.classList.add("show");
+}
+
+// Try Again Button Logic
+tryAgainButton.addEventListener("click", () => {
+  endGameModal.classList.remove("show");
+  resetGame(); // Resets the current game
+});
+
+// End Game Button Logic
+endGameButton.addEventListener("click", () => {
+  endGameModal.classList.remove("show");
+  location.reload(); // Reloads the page to start fresh
+});
+
+
 // Function to trigger confetti //
 function triggerConfetti() {
   const count = 200;
-  const defaults = { origin: { y: 0.7 } };
+  const defaults = {
+    origin: {
+      y: 0.7
+    }
+  };
 
   function fire(particleRatio, opts) {
     confetti(
@@ -312,6 +335,12 @@ function triggerConfetti() {
     spread: 120,
     startVelocity: 45,
   });
+  
+  // Show end game modal after confetti animation
+  setTimeout(() => {
+      showEndGameModal();
+  }, 3000); // Confetti animation delay
+
 }
 
 // Update Score 
