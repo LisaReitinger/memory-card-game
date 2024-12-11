@@ -189,11 +189,11 @@ function updateDifficulty() {
   gameDifficulty = difficultySelect.value;
   if (gameDifficulty === 'easy') {
     gridSize = 4;
-    cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8)); 
+    cards = decks[deckType].slice(0, 8).concat(decks[deckType].slice(0, 8));
     hintButton.disabled = false; // Enable hint button
   } else if (gameDifficulty === 'hard') {
     gridSize = 5;
-    cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10)); 
+    cards = decks[deckType].slice(0, 10).concat(decks[deckType].slice(0, 10));
     hintButton.disabled = true; // Disable hint button
   }
 
@@ -293,9 +293,16 @@ endGameButton.addEventListener("click", () => {
   location.reload(); // Reloads the page to start fresh
 });
 
-
 // Function to trigger confetti //
 function triggerConfetti() {
+  // Check for prefers-reduced-motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) {
+    showEndGameModal(); // Directly show the modal if reduced motion is preferred
+    return;
+  }
+
   const count = 200;
   const defaults = {
     origin: {
@@ -337,10 +344,10 @@ function triggerConfetti() {
     spread: 120,
     startVelocity: 45,
   });
-  
+
   // Show end game modal after confetti animation
   setTimeout(() => {
-      showEndGameModal();
+    showEndGameModal();
   }, 3000); // Confetti animation delay
 
 }

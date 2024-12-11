@@ -414,7 +414,7 @@ select {
     .game-board {
         gap: 15px;
     }
-
+    
     .card {
         max-width: 150px;
     }
