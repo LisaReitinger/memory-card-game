@@ -1,3 +1,5 @@
+/* global confetti */
+
 // Selected DOM elements
 const gameBoard = document.getElementById('gameBoard');
 const startGameButton = document.getElementById('startGame');
