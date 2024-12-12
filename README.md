@@ -29,9 +29,12 @@ View the Memory Match Challenge live site [here](https://lisareitinger.github.io
 4. [Technologies Used](#technologies-used)
    - [Languages](#languages)
    - [Libraries and Programs](#libraries-and-programs)
+   - [Why these Tools were chosen](#why-these-tools-were-chosen)
 5. [Deployment](#deployment)
-   - [How to Fork](#how-to-fork)
-   - [How to Clone](#how-to-clone)
+   - [Deployment](#deployment)
+   - [Local Development](#local-development)
+      * [How to Fork](#how-to-fork)
+      * [How to Clone](#how-to-clone)
 6. [Testing](#testing)
    - [HTML](#html)
    - [CSS](#css)
@@ -158,6 +161,86 @@ The game adapts seamlessly to desktop, tablet, and mobile screens. The layout en
   - *Space*: Wonder and exploration.
   - *Mythical Creatures*: Excitement and imagination.
 - **Timed Challenges:** Implement a timed mode where players race against the clock to match all pairs, adding a sense of urgency and excitement.
+
+---
+
+## **Technologies Used**
+
+### **Languages**
+- **HTML5:** Used to structure the content of the game, providing a semantic and accessible framework.
+- **CSS3:** Styled the game for visual appeal, including custom animations, responsive design, and an engaging user interface.
+- **JavaScript:** Powered the game's functionality, from flipping cards and managing game logic to implementing animations and dynamic interactions.
+
+### **Libraries and Programs**
+- **[Google Fonts](https://fonts.google.com/):** Used to implement custom typography, including the playful Fredoka One and the clean and readable Roboto fonts, enhancing the user experience.
+- **[Canvas Confetti](https://www.kirilv.com/canvas-confetti/):** Implemented for victory animations to celebrate user accomplishments in a visually exciting way.
+- **[Git](https://git-scm.com/):** Used for version control, allowing efficient tracking of changes, collaboration, and safe iteration throughout development.
+- **[GitHub](https://github.com/):** All files for the project were stored and managed in a GitHub repository, ensuring proper organization and accessibility.
+- **[GitHub Pages](https://pages.github.com/):** Used for deploying the live version of the game, making it accessible on the web.
+- **[Favicon.io](https://favicon.io/):** Used to generate custom favicons for branding and a polished user experience.
+- **[Canva](https://www.canva.com/):** Used to design and create vibrant card deck images (animals and fruits), adding to the visual appeal and theme of the game.
+- **[Google Developer Tools](https://developer.chrome.com/docs/devtools/):** Used extensively during development to debug, test responsiveness, and optimize styling for a seamless experience across devices.
+- **[Google Lighthouse](https://developers.google.com/web/tools/lighthouse):** Utilized during testing to analyze performance, accessibility, SEO, and adherence to best practices.
+- **[TinyPNG](https://tinypng.com/):** Used to compress image files, reducing load times and improving overall website performance without compromising quality.
+- **[Am I Responsive?](http://ami.responsivedesign.is/):** Used to showcase how the game appears across different devices, highlighting its responsive design.
+- **[Coolors](https://coolors.co/):** A color palette generator used to select the game's visually striking colors, ensuring harmony and accessibility.
+
+### **Why These Tools Were Chosen**
+These tools were selected to enhance the development workflow, ensure optimal performance, and create a visually appealing and user-friendly experience. For instance:
+- **Canvas Confetti** adds an element of joy to celebrate achievements.
+- **Canva** enables creative freedom in designing unique and vibrant card visuals.
+- **TinyPNG** ensures quick loading times, crucial for a smooth user experience.
+- **Google Lighthouse** provides actionable insights for creating a web-optimized and accessible game.
+
+By leveraging this combination of languages, libraries, and tools, I was able to build a fun, responsive, and interactive game that delivers an enjoyable experience for players across all devices.
+
+## **Deployment**
+
+### **Live Deployment**
+
+The live website has been deployed using GitHub Pages. 
+
+1. Log in (or sign up) to your GitHub account.
+2. Navigate to the repository where your project is stored.
+3. Click on the **"Settings"** tab in the repository.
+4. Scroll down to the **"Pages"** section in the left-hand menu.
+5. Under the **"Build and Deployment"** section:
+   - Select **"main"** from the branch dropdown menu.
+   - Choose **"/ (root)"** as the folder.
+6. Click **"Save"**.
+7. GitHub will generate a link to your live site. This link will be displayed at the top of the **"Pages"** section. Note that it might take a few minutes for the site to become fully available.
+
+The live version of this project can be viewed [here](https://lisareitinger.github.io/memory-card-game/).
+
+---
+
+### **Local Development**
+
+You can work on this project locally by forking or cloning the repository. Follow the steps below:
+
+#### **How to Fork**
+1. Log in to your GitHub account.
+2. Navigate to the repository.
+3. Click on the **"Fork"** button at the top-right corner of the repository page.
+4. A copy of the repository will now appear in your GitHub account under your profile.
+
+#### **How to Clone**
+1. Log in to your GitHub account.
+2. Navigate to the repository.
+3. Click on the green **"Code"** button and choose one of the cloning options:
+   - **HTTPS:** Copy the provided link.
+   - **SSH:** Use the SSH URL if your GitHub account is set up with SSH keys.
+   - **GitHub CLI:** Use the provided CLI command if you have GitHub CLI installed.
+4. Open your terminal and navigate to the folder where you want to clone the repository.
+5. Type 'git clone' and then paste the URL you copied earlier.
+6. Press enter.
+
+
+
+
+
+
+
 
 
 
