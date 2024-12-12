@@ -137,8 +137,8 @@ function initializeGame() {
   score = 0;
   failures = 0;
   gameBoard.style.display = 'none';
-  headerTitle.classList.remove('hidden'); // Ensure header is visible on reset
-  instructions.classList.remove('hidden'); // Ensure instructions are visible on reset
+  headerTitle.classList.remove('hidden'); 
+  instructions.classList.remove('hidden'); 
   updateDifficulty();
   updateScore();
   updateFailures();
@@ -290,7 +290,7 @@ tryAgainButton.addEventListener("click", () => {
 // End Game Button Logic
 endGameButton.addEventListener("click", () => {
   endGameModal.classList.remove("show");
-  location.reload(); // Reloads the page to start fresh
+  location.reload(); 
 });
 
 // Function to trigger confetti //
@@ -348,7 +348,7 @@ function triggerConfetti() {
   // Show end game modal after confetti animation
   setTimeout(() => {
     showEndGameModal();
-  }, 3000); // Confetti animation delay
+  }, 3000); 
 
 }
 
@@ -381,7 +381,7 @@ quitGameButton.addEventListener('click', () => {
 // Confirm Quit
 confirmQuitButton.addEventListener('click', () => {
   quitModal.classList.remove('show');
-  location.reload(); // Reload the page to reset everything
+  location.reload(); 
 });
 
 // Cancel Quit
@@ -391,7 +391,7 @@ cancelQuitButton.addEventListener('click', () => {
 
 // Show Hint
 function showHint() {
-  let hintShown = false; // Variable to track if a hint is already shown
+  let hintShown = false; 
 
   cards.forEach(card => {
     // Find unmatched cards for the same name

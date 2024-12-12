@@ -193,7 +193,6 @@ select {
 
 .card {
     flex: 1 1 calc(25% - 15px);
-    /* Ensures 4 cards per row */
     width: 100%;
     max-width: 100px;
     aspect-ratio: 1 / 1;
@@ -213,7 +212,6 @@ select {
     width: 90%;
     height: 90%;
     object-fit: contain;
-    /* Ensures the image fits inside without cropping */
     object-position: center;
     border-radius: 10px;
 }
@@ -392,7 +390,6 @@ select {
         animation: none;
     }
 
-    /* Keep card flip transition */
     .card {
         transition: transform 0.5s;
     }

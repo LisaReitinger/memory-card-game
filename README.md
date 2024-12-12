@@ -36,13 +36,12 @@ View the Memory Match Challenge live site [here](https://lisareitinger.github.io
       * [How to Fork](#how-to-fork)
       * [How to Clone](#how-to-clone)
 6. [Testing](#testing)
-   - [HTML](#html)
-   - [CSS](#css)
-   - [JavaScript](#javascript)
+   - [Automated Testing](#automated-testing)
+      * [HTML](#html)
+      * [CSS](#css)
+      * [JavaScript](#javascript)
    - [Manual Testing](#manual-testing)
 7. [Bugs](#bugs)
-   - [Known Bugs](#known-bugs)
-   - [Fixed Bugs](#fixed-bugs)
 8. [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
@@ -234,6 +233,96 @@ You can work on this project locally by forking or cloning the repository. Follo
 4. Open your terminal and navigate to the folder where you want to clone the repository.
 5. Type 'git clone' and then paste the URL you copied earlier.
 6. Press enter.
+
+---
+
+# **Testing**
+
+## **Automated Testing**
+
+### **HTML** 
+The HTML file was tested using the [W3C Markup Validation Service](https://validator.w3.org/). The validation [results](https://validator.w3.org/nu/?doc=https%3A%2F%2Flisareitinger.github.io%2Fmemory-card-game%2F) showed no errors or warnings, ensuring semantic and valid HTML structure.
+
+![HTML Validation Result](docs/testing_images/html-validation.png)
+
+### **CSS**
+The CSS file was tested using the [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/). The validation [passed](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flisareitinger.github.io%2Fmemory-card-game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) without any errors, confirming clean and well-structured stylesheets.
+
+![CSS Validation Result](docs/testing_images/css-validation.png)
+
+### **JavaScript**
+The JavaScript code was tested using [JSHint](https://jshint.com/). No major errors or warnings were found.
+
+![JavaScript Validation Result](docs/testing_images/javascript-validation.png)
+
+### **Lighthouse**
+The performance, accessibility, best practices, and SEO of the game were tested using [Google Lighthouse](https://developers.google.com/web/tools/lighthouse). 
+
+![Lighthouse Testing Results](docs/testing_images/lighthouse.png)
+
+---
+
+## **Manual Testing**
+
+### **Button Functionality**
+All buttons, including `Start Game`, `Reset Game`, `Hint`, and `Quit Game`, were tested:
+- Verified transitions between visible and hidden states.
+- Ensured the `Hint` button disables in Hard mode and functions correctly in Easy mode.
+- Confirmed the `Reset Game` button clears the game state, resets scores, and shuffles the deck.
+- Verified the `Quit Game` button opens a modal prompt, and "Yes" quits the game while "No" resumes gameplay.
+
+---
+
+### **Game Testing**
+The following functionalities were manually tested:
+- **Deck Selection:** Switching between Animals and Fruits decks updates the card images correctly.
+- **Hint Button:** Verified it flips matching pairs in Easy mode and hides in Hard mode.
+- **Victory Animation:** Confetti and victory modal display properly upon completing the game.
+- **Quit Modal:** Verified quit option resets the game without errors.
+
+--- 
+
+## **Bugs**
+
+1. **Hint Button Misbehavior on Hard Mode:**
+   - **Issue:** On smaller devices, the `Hint` button appeared clickable in Hard mode but did nothing when pressed. This caused confusion for players.
+   - **Solution:** Implemented a CSS media query to hide the `Hint` button for smaller devices in Hard mode. Also ensured that the button’s `:disabled` state tooltip provided clear feedback on desktop.
+
+2. **Victory Animation Overlap:**
+   - **Issue:** When the game was completed and the confetti animation played, the victory modal occasionally appeared before the animation finished, causing visual overlap and a jarring experience.
+   - **Solution:** Introduced a delay in the `triggerConfetti` function to ensure the animation fully completed before the victory modal appeared.
+
+3. **Game Board Scrolling Issue on Mobile:**
+   - **Issue:** In Hard mode on mobile devices, the game board extended beyond the screen, but scrolling was disabled, preventing players from viewing all the cards.
+   - **Solution:** Added a `overflow: auto` property to the `body` container to enable smooth scrolling while maintaining responsive design.
+
+## **Credits**
+
+### **Content**
+- The instructions and game logic were developed with a focus on providing an engaging and intuitive user experience for players of all ages.
+- The deck themes (Animals and Fruits) were chosen to add variety and keep the game visually appealing while maintaining simplicity.
+
+### **Media**
+- **Card Images:** Custom images for the Animals and Fruits decks were created using Canva, ensuring a consistent and playful design style.
+- **Victory Animation:** The confetti animation was implemented using [Canvas Confetti](https://www.kirilv.com/canvas-confetti/), adding a fun celebratory element to the game.
+- **Icons:** Icons used throughout the project, such as buttons and tooltips, were customized to fit the theme of the game.
+
+### **Resources Used**
+- [Google Fonts](https://fonts.google.com/) for typography, including Fredoka One and Roboto fonts.
+- [Coolors](https://coolors.co/) for designing the color palette, ensuring a playful yet accessible design.
+- [TinyPNG](https://tinypng.com/) for compressing image files to optimize website performance.
+- [Am I Responsive?](http://ami.responsivedesign.is/) to showcase how the game looks across various devices in the README file.
+- [Google Developer Tools](https://developer.chrome.com/docs/devtools/) for debugging, testing responsiveness, and optimizing performance.
+- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/) for performance, accessibility, and SEO testing.
+- [Favicon.io](https://favicon.io/) for generating favicon files for the game.
+
+### **Acknowledgements**
+- **Code Institute:** A special thanks to the Code Institute curriculum and resources for providing a strong foundation in web development and guiding the project structure and process. 
+- **Matt Bodden:** Thanks to my mentor, Matt Bodden, for his insightful advice, constructive feedback, and support throughout the development of this project.
+- **Testing Contributors:** Thanks to friends and family for dedicating their time to test the game, providing valuable suggestions, and helping identify and refine critical areas of improvement.
+
+
+
 
 
 
