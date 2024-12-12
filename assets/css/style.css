@@ -419,3 +419,9 @@ select {
         max-width: 150px;
     }
 }
+
+@media (max-width: 1024px) {
+    #hintButton[disabled] {
+        display: none;
+    }
+}
