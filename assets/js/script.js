@@ -29,6 +29,7 @@ let failures = 0;
 let deckType = 'animals';
 let gameDifficulty = 'easy';
 let gridSize = 4;
+let showingHint = false;
 
 // Deck Data
 const decks = {
@@ -137,8 +138,8 @@ function initializeGame() {
   score = 0;
   failures = 0;
   gameBoard.style.display = 'none';
-  headerTitle.classList.remove('hidden'); 
-  instructions.classList.remove('hidden'); 
+  headerTitle.classList.remove('hidden');
+  instructions.classList.remove('hidden');
   updateDifficulty();
   updateScore();
   updateFailures();
@@ -241,10 +242,15 @@ function flipCard(cardElement) {
     cardElement.classList.add('flipped');
     flippedCards.push(cardElement);
 
-    if (flippedCards.length === 2) {
+    if (flippedCards.length === 2 && !showingHint) {
       checkForMatch();
     }
   }
+}
+
+function unflipCards(cardOne, cardTwo) {
+  cardOne.classList.remove('flipped');
+  cardTwo.classList.remove('flipped');
 }
 
 // Check for Match
@@ -262,8 +268,7 @@ function checkForMatch() {
     failures++;
     updateFailures();
     setTimeout(() => {
-      cardOne.classList.remove('flipped');
-      cardTwo.classList.remove('flipped');
+      unflipCards(cardOne, cardTwo);
       flippedCards = [];
     }, 1000);
   }
@@ -290,7 +295,7 @@ tryAgainButton.addEventListener("click", () => {
 // End Game Button Logic
 endGameButton.addEventListener("click", () => {
   endGameModal.classList.remove("show");
-  location.reload(); 
+  location.reload();
 });
 
 // Function to trigger confetti //
@@ -348,7 +353,7 @@ function triggerConfetti() {
   // Show end game modal after confetti animation
   setTimeout(() => {
     showEndGameModal();
-  }, 3000); 
+  }, 3000);
 
 }
 
@@ -381,7 +386,7 @@ quitGameButton.addEventListener('click', () => {
 // Confirm Quit
 confirmQuitButton.addEventListener('click', () => {
   quitModal.classList.remove('show');
-  location.reload(); 
+  location.reload();
 });
 
 // Cancel Quit
@@ -391,27 +396,32 @@ cancelQuitButton.addEventListener('click', () => {
 
 // Show Hint
 function showHint() {
-  let hintShown = false; 
+  if (showingHint) return; // Prevent multiple hints at the same time
 
-  cards.forEach(card => {
-    // Find unmatched cards for the same name
-    const cardElements = [...gameBoard.children].filter(child =>
-      child.dataset.name === card.name && !child.classList.contains('matched')
-    );
+  const unmatchedPairs = cards.filter(card =>
+    ![...gameBoard.children].some(child =>
+      child.dataset.name === card.name && child.classList.contains('flipped')
+    )
+  );
 
-    // Show the first unmatched pair
-    if (!hintShown && cardElements.length === 2) {
-      cardElements[0].classList.add('flipped');
-      cardElements[1].classList.add('flipped');
-      hintShown = true; // Mark that a hint has been shown
+  if (unmatchedPairs.length === 0) return;
 
-      // Hide the hint after 3 seconds
-      setTimeout(() => {
-        cardElements[0].classList.remove('flipped');
-        cardElements[1].classList.remove('flipped');
-      }, 3000);
-    }
-  });
+  // Randomly select a hint pair
+  const hintCard = unmatchedPairs[Math.floor(Math.random() * unmatchedPairs.length)];
+  const hintCards = [...gameBoard.children].filter(child =>
+    child.dataset.name === hintCard.name && !child.classList.contains('matched')
+  );
+
+  if (hintCards.length === 2) {
+    hintCards[0].classList.add('flipped');
+    hintCards[1].classList.add('flipped');
+    showingHint = true;
+
+    setTimeout(() => {
+      unflipCards(hintCards[0], hintCards[1]);
+      showingHint = false;
+    }, 3000);
+  }
 }
 
 // Initialize Game
