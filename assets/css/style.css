@@ -59,7 +59,7 @@ header h1 {
     background-color: #854798;
     color: #fff;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 20px;
     margin: 10px;
     font-size: 1.1rem;
     border-radius: 10px;
@@ -144,7 +144,7 @@ button:disabled:hover::after {
     background-color: #854798;
     color: #fff;
     border: none;
-    padding: 15px 25px;
+    padding: 10px 20px;
     font-size: 1.1rem;
     border-radius: 10px;
     cursor: pointer;
@@ -316,7 +316,7 @@ select {
 
 /* Adjust Quit Button */
 #quitGameButton {
-    background-color: #d94f4f;
+    background-color: #bf3d3d;
     color: #fff;
     border: none;
     padding: 10px 20px;
